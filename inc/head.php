@@ -42,11 +42,26 @@
               Cart
             </a>
           </li>
+            <?php $cookie_name = "username"; ?>
+            <?php
+            if(!isset($_COOKIE[$cookie_name])) {
+                echo "Cookie named '" . $cookie_name . "' is not set!";
+            } else {
+                echo "Cookie '" . $cookie_name . "' is set!<br>";
+                echo "Value is: " . $_COOKIE[$cookie_name];
+            }
+            ?>
+            <li>
+                <a href="/login.php" class="form control   navbar-btn">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    Login
+                </a>
+            </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <div class="container-fluid text-right">
-    <strong>Hello Wilder !</strong>
+    <strong>Hello <?php echo (isset($_SESSION['username'])) ? $_SESSION['username'] : 'Wilder' ?> </strong>
   </div>
 </header>
